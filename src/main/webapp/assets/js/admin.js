@@ -93,35 +93,37 @@ function searchForItems(item) {
 				$.each(data, function(key, value) {
 
 					var lstResults =
-						"<div class=\"col mb-5\">" +
-						"    <div class=\"card h-100\">" +
-						"        <!-- Product image-->" +
-						"        <img class=\"card-img-top\" src=\"" + value.imageURL + "\" alt=\"...\" style='object-fit: contain; height: 200px; width: 100%; padding-top: 20px; padding-left: 10px; padding-right: 10px;'/>" +
-						"        <!-- Product details-->" +
-						"        <div class=\"card-body p-4\">" +
-						"            <div class=\"text-center\">" +
-						"                <!-- Product name-->\n" +
-						"                <h5 class=\"fw-bolder\">" + value.shortTitle + "</h5>" +
-						"<div class=\"d-flex justify-content-center small text-warning mb-2\">";
+				"<div class=\"col mb-5\">" +
+				"    <div class=\"card h-100\">" +
+				"        <!-- Product image-->" +
+				"        <img class=\"card-img-top\" src=\"" + value.imageURL + "\" alt=\"...\" style='object-fit: contain; height: 200px; width: 100%; padding-top: 20px; padding-left: 10px; padding-right: 10px;'/>" +
+				"        <!-- Product details-->" +
+				"        <div class=\"card-body p-4\">" +
+				"            <div class=\"text-center\">" +
+				"                <!-- Product name-->\n" +
+				"                <h5 class=\"fw-bolder\">" + value.shortTitle + "</h5>" +
+				"<div class=\"d-flex justify-content-center small text-warning mb-2\">";
 
-					for (var i = 0; i < Math.floor(value.rating); i++) {
-						lstResults += "<div class=\"bi-star-fill\"></div>";
-					}
-					if (Math.round(value.rating) > value.rating) {
-						lstResults += "<div class=\"bi-star-half\"></div>";
-					}
+			for (var i = 0; i < Math.floor(value.rating); i++) {
+				lstResults += "<div class=\"bi-star-fill\"></div>";
+			}
+			if (Math.round(value.rating) > value.rating) {
+				lstResults += "<div class=\"bi-star-half\"></div>";
+			}
 
-					lstResults += "                </div>" +
-						"                $" + value.price.toFixed(2) +
-						"            </div>" +
-						"        </div>" +
-						"        <div class=\"card-footer p-4 pt-0 border-top-0 bg-transparent\">" +
-						"            <div class=\"text-center\"><a class=\"btn btn-outline-dark mt-auto\" href=\"#\">Add to cart</a></div>" +
-						"        </div>" +
-						"    </div>" +
-						"</div>";
+			lstResults += "                </div>" +
+				"                $" + value.price.toFixed(2) +
+				"            </div>" +
+				"        </div>" +
+				"        <div class=\"card-footer p-4 pt-0 border-top-0 bg-transparent me-2\">" +
+				"            <div class=\"text-center\">" +
+				"            <a class=\"btn btn-outline-success mt-1\" onclick=updateProduct('" + value.id + "') data-toggle='modal' >Update</a> " +
+				"            <a class=\"btn btn-outline-danger mt-1\" onclick=removeProduct('" + value.id + "') data-toggle='modal' >Remove</a></div>" +
+				"        </div>" +
+				"    </div>" +
+				"</div>";
 
-					document.getElementById('cards').innerHTML += lstResults;
+			document.getElementById('cards').innerHTML += lstResults;
 				});
 				console.log(data);
 
