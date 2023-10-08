@@ -6,6 +6,7 @@ $(document).ready(function() {
 	if(urlParams.get(
 		"payment_intent_client_secret"
 	)){
+		document.getElementById('orderSubtotal').innerHTML = document.getElementById('subtotalQty').innerHTML;
 		showOrderConfirmation();
 		localStorage.removeItem('cart');
 	}
