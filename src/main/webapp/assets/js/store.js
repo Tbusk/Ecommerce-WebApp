@@ -120,7 +120,7 @@ function searchForItems(item) {
 
 
 	} else {
-		fetch(`/ecommerce/store/products-api/search?item=${encodeURIComponent(item)}`).
+		fetch(`./store/products-api/search?item=${encodeURIComponent(item)}`).
 			then(response => response.json()).then(data => {
 				$.each(data, function(key, value) {
 
