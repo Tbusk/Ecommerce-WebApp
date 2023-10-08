@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container,
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>Square App</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>rest.ecommerce.square</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>Stripe App</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>rest.ecommerce.stripe</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>Store API</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>rest.ecommerce.store</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin Page</servlet-name>
+        <jsp-file>/adminview.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Checkout Page</servlet-name>
+        <jsp-file>/Checkout.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Admin Page</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Checkout Page</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Square App</servlet-name>
+        <url-pattern>/square/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Stripe App</servlet-name>
+        <url-pattern>/stripe/*</url-pattern>
+    </servlet-mapping>
+   
+    <servlet-mapping>
+        <servlet-name>Store API</servlet-name>
+        <url-pattern>/store/*</url-pattern>
+    </servlet-mapping>
+</web-app>
